@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'translate-symbols';
   sTexto: string = '';
   sTextoConvertido: string = '';
+  sTextoConvertidoConDobleSalto: string = '';
 
   replaceText() {
     const chars:any = {
@@ -24,5 +25,8 @@ export class AppComponent {
       'ț':'t'
     };
     this.sTextoConvertido = this.sTexto.replace(/[ĂăÂâÎîȘșȚț]/g, m => chars[m]);
+
+    // Dobles saltos de linea cambiarlos por --- para el programa de traduccioens Elim
+    this.sTextoConvertidoConDobleSalto = this.sTextoConvertido.replace(/(\n\n)/gm,"\n---\n");
   }
 }
